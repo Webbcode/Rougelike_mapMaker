@@ -27,7 +27,7 @@ function MapManager(x, y, w, h, tW, tH, ssM){
     for(var y = 0; y < tH;y++){
       toPush.push(-1.1);
       toPushB.push(-1.2);
-      toPushA.push(3);
+      toPushA.push(0);
     }
     this.tileLayout.push(toPush);
     this.tileLayoutObjects.push(toPushB);
@@ -63,12 +63,12 @@ function MapManager(x, y, w, h, tW, tH, ssM){
       tX = floor((x - this.x) / (this.tileS));
       tY = floor((y - this.y) / (this.tileS));
       this.tileType[tX][tY]++;
-      if(this.tileType[tX][tY] > 3){
+      if(this.tileType[tX][tY] > 5){
         this.tileType[tX][tY] = 0;
       }
     }else{
       this.tileType[x][y]++;
-      if(this.tileType[x][y] > 3){
+      if(this.tileType[x][y] > 5){
         this.tileType[x][y] = 0;
       }
     }
@@ -91,16 +91,24 @@ function MapManager(x, y, w, h, tW, tH, ssM){
         if(this.tileLayoutObjects[x][y] !== -1.1 && this.tileLayoutObjects[x][y] !== -1.2){
           this.ssM.renderSprite(this.tileLayoutObjects[x][y], x * this.tileS + this.x, y * this.tileS + this.y, this.tileS, this.tileS);
         }
-        if(this.tileType[x][y] === 0){
+        if(this.tileType[x][y] === 1){
           fill(255, 0, 0, 255 / 5);
           rect(x * this.tileS + this.x, y * this.tileS + this.y, this.tileS, this.tileS)
           fill(255);
-        }else if(this.tileType[x][y] === 1){
+        }else if(this.tileType[x][y] === 2){
           fill(0, 255, 0, 255 / 5);
           rect(x * this.tileS + this.x, y * this.tileS + this.y, this.tileS, this.tileS)
           fill(255);
-        }else if(this.tileType[x][y] === 2){
+        }else if(this.tileType[x][y] === 3){
           fill(0, 0, 255, 255 / 5);
+          rect(x * this.tileS + this.x, y * this.tileS + this.y, this.tileS, this.tileS)
+          fill(255);
+        }else if(this.tileType[x][y] === 4){
+          fill(0, 255, 255, 255 / 5);
+          rect(x * this.tileS + this.x, y * this.tileS + this.y, this.tileS, this.tileS)
+          fill(255);
+        }else if(this.tileType[x][y] === 5){
+          fill(255, 0, 255, 255 / 5);
           rect(x * this.tileS + this.x, y * this.tileS + this.y, this.tileS, this.tileS)
           fill(255);
         }
