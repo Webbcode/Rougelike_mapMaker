@@ -34,7 +34,9 @@ function draw() {
   text("Enemy Spawn",width - 64 * 3, 40 + 64 * 3, 64, 64);
   text("Boss Spawn",width - 64 * 3, 40 + 64 * 4, 64, 64);
   textAlign(CENTER, CENTER);
+  fill(0);
   text("Download Map", width - this.ssM.spriteSize * 2, 0, 64, 40);
+  fill(255);
 }
 
 function keyPressed(){
