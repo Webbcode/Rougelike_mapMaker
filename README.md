@@ -9,5 +9,5 @@
 > + middle click to change what type the tile is (nothing, solid, player spawn, player entry, monster spawn, boss spawn) 
 > `note: boss spawn will not be used in the game for a while`
 ### How to get the map into the game
-> DM me on Discord for those who kno me there.
-## [To the program]()
+> DM me on Discord for those who know me there.
+## [To the program](https://webbcode.github.io/Rougelike_mapMaker/mapMaker.html)
