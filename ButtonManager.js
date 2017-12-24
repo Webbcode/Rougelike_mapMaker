@@ -31,7 +31,7 @@ function Button(x, y, w, h, t, f){
   this.render = function(){
     rect(this.x, this.y, this.w, this.h);
     textAlign(CENTER, CENTER);
-    text(t, this.x, this.y, this.w, this.h);
+    text(this.t, this.x, this.y, this.w, this.h);
   }
   this.mouseClicked = function(){
     if(contains(mouseX, mouseY, this.x, this.y, this.w, this.h)){

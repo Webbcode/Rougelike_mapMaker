@@ -140,38 +140,44 @@ function MapManager(x, y, w, h, tW, tH, ssM){
   }
   
   this.downloadMapS = function(){
-    mapData = "addMap([";
+    mapData = "addMap([[";
     for(var i = 0; i < this.tileLayout.length;i++){
       for (var j = 0; j < this.tileLayout[0].length;j++){
-        if(i < this.tileLayout.length - 1 || j < this.tileLayout[0].length - 1){
+        if(i < this.tileLayout.length - 1 && j === this.tileLayout[0].length - 1){
+          mapData = mapData + this.tileLayout[i][j] + "],[";
+        }else if(i < this.tileLayout.length - 1 || j < this.tileLayout[0].length - 1){
           mapData = mapData + this.tileLayout[i][j] + ",";
         }else{
-          mapData = mapData + this.tileLayout[i][j] + "],[";
+          mapData = mapData + this.tileLayout[i][j] + "]],[[";
         }
       }
     }
     for(var i = 0; i < this.tileLayoutObjects.length;i++){
       for (var j = 0; j < this.tileLayoutObjects[0].length;j++){
-        if(i < this.tileLayoutObjects.length - 1 || j < this.tileLayoutObjects[0].length - 1){
+        if(i < this.tileLayoutObjects.length - 1 && j === this.tileLayoutObjects[0].length - 1){
+          mapData = mapData + this.tileLayoutObjects[i][j] + "],[";
+        }else if(i < this.tileLayoutObjects.length - 1 || j < this.tileLayoutObjects[0].length - 1){
           mapData = mapData + this.tileLayoutObjects[i][j] + ",";
         }else{
-          mapData = mapData + this.tileLayoutObjects[i][j] + "],[";
+          mapData = mapData + this.tileLayoutObjects[i][j] + "]],[[";
         }
       }
     }
     for(var i = 0; i < this.tileType.length;i++){
       for (var j = 0; j < this.tileType[0].length;j++){
-        if(i < this.tileType.length - 1 || j < this.tileType[0].length - 1){
+        if(i < this.tileType.length - 1 && j === this.tileType[0].length - 1){
+          mapData = mapData + this.tileType[i][j] + "],[";
+        }else if(i < this.tileType.length - 1 || j < this.tileType[0].length - 1){
           mapData = mapData + this.tileType[i][j] + ",";
         }else{
-          mapData = mapData + this.tileType[i][j] + "]);";
+          mapData = mapData + this.tileType[i][j] + "]]);";
         }
       }
     }
     console.log(mapData);
-    download(mapData, "map.js", "text/javascript");
+    var name = prompt("What will you save this name as? (I recomend the name you would give it)", "");
+    download(mapData, name + ".js", "text/javascript");
   }
-  
   this.downloadButton = new Button(width - this.ssM.spriteSize * 2 , 0, this.ssM.spriteSize, 40, "Download Map", function(){mM.downloadMapS()});
   bm.addButton(this.downloadButton);
 }
