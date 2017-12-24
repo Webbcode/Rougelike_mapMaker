@@ -186,6 +186,6 @@ function MapManager(x, y, w, h, tW, tH, ssM){
     var name = prompt("What will you save this name as? (I recomend the name you would give it)", "");
     download(mapData, name + ".js", "text/javascript");
   }
-  this.downloadButton = new Button(width - this.ssM.spriteSize * 2 , 0, this.ssM.spriteSize, 40, "Download Map", function(){mM.downloadMapS()});
+  this.downloadButton = new Button(width - this.ssM.spriteSize * 2 , 0, this.ssM.spriteSize, 40, "", function(){mM.downloadMapS()});
   bm.addButton(this.downloadButton);
 }
