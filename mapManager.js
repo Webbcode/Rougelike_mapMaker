@@ -185,7 +185,7 @@ function MapManager(x, y, w, h, tW, tH, ssM){
     console.log(mapData);
     var name = prompt("What will you save this map as? (I recomend the name you would give it)", "");
     var num = floor(random() * 1000000000);
-    download("mM.addMap(" + mapData + ")", name + num + ".js", "text/javascript");
+    download("function " + name + num +"(){ mM.addMap(" + mapData + ");}", name + num + ".js", "text/javascript");
   }
   this.downloadButton = new Button(width - this.ssM.spriteSize * 2 , 0, this.ssM.spriteSize, 40, "", function(){mM.downloadMapS()});
   bm.addButton(this.downloadButton);
