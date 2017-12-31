@@ -184,7 +184,8 @@ function MapManager(x, y, w, h, tW, tH, ssM){
     }
     console.log(mapData);
     var name = prompt("What will you save this map as? (I recomend the name you would give it)", "");
-    download("setTimeout(" + name + ", 100); \n function " + name + "(){" + mapData + "}", name + ".js", "text/javascript");
+    var num = floor(random() * 1000000000);
+    download("setTimeout(" + name + num + ", 100); \n function " + name + "(){" + mapData + "}", name + num + ".js", "text/javascript");
   }
   this.downloadButton = new Button(width - this.ssM.spriteSize * 2 , 0, this.ssM.spriteSize, 40, "", function(){mM.downloadMapS()});
   bm.addButton(this.downloadButton);
