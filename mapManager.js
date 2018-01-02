@@ -148,7 +148,7 @@ function MapManager(x, y, w, h, tW, tH, ssM){
   }
   
   this.downloadMapS = function(){
-    mapData = "new Map([[\n \t";
+    mapData = "new Map([[";
     for(var i = 0; i < this.tileLayout.length;i++){
       for (var j = 0; j < this.tileLayout[0].length;j++){
         if(i < this.tileLayout.length - 1 && j === this.tileLayout[0].length - 1){
@@ -178,14 +178,17 @@ function MapManager(x, y, w, h, tW, tH, ssM){
         }else if(i < this.tileType.length - 1 || j < this.tileType[0].length - 1){
           mapData = mapData + this.tileType[i][j] + ",";
         }else{
-          mapData = mapData + this.tileType[i][j] + "]]) \n";
+          mapData = mapData + this.tileType[i][j] + "]])";
         }
       }
     }
     console.log(mapData);
     var name = prompt("What will you save this map as? (I recomend the name you would give it)", "");
+    if(name === '' || str.replace(/ /g, "") === ''){
+      name = 'a'
+    }
     var num = floor(random() * 1000000000);
-    download("function " + name + num +"(){ mM.addMap(" + mapData + ");}", name + num + ".js", "text/javascript");
+    download("function " + name + num +"(){\n\tmM.addMap(" + mapData + ");\n}", name + num + ".js", "text/javascript");
   }
   this.downloadButton = new Button(width - this.ssM.spriteSize * 2 , 0, this.ssM.spriteSize, 40, "", function(){mM.downloadMapS()});
   bm.addButton(this.downloadButton);
