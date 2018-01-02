@@ -152,11 +152,11 @@ function MapManager(x, y, w, h, tW, tH, ssM){
     for(var i = 0; i < this.tileLayout.length;i++){
       for (var j = 0; j < this.tileLayout[0].length;j++){
         if(i < this.tileLayout.length - 1 && j === this.tileLayout[0].length - 1){
-          mapData = mapData + this.tileLayout[i][j] + "],\n[";
+          mapData = mapData + this.tileLayout[i][j] + "],\n \n \t[";
         }else if(i < this.tileLayout.length - 1 || j < this.tileLayout[0].length - 1){
           mapData = mapData + this.tileLayout[i][j] + ",";
         }else{
-          mapData = mapData + this.tileLayout[i][j] + "]],\n[[";
+          mapData = mapData + this.tileLayout[i][j] + "]],\n \n \t[[";
         }
       }
     }
@@ -167,18 +167,18 @@ function MapManager(x, y, w, h, tW, tH, ssM){
         }else if(i < this.tileLayoutObjects.length - 1 || j < this.tileLayoutObjects[0].length - 1){
           mapData = mapData + this.tileLayoutObjects[i][j] + ",";
         }else{
-          mapData = mapData + this.tileLayoutObjects[i][j] + "]],\n[[";
+          mapData = mapData + this.tileLayoutObjects[i][j] + "]],\n \n \t[[";
         }
       }
     }
     for(var i = 0; i < this.tileType.length;i++){
       for (var j = 0; j < this.tileType[0].length;j++){
         if(i < this.tileType.length - 1 && j === this.tileType[0].length - 1){
-          mapData = mapData + this.tileType[i][j] + "],\n[";
+          mapData = mapData + this.tileType[i][j] + "],\n \n \t[";
         }else if(i < this.tileType.length - 1 || j < this.tileType[0].length - 1){
           mapData = mapData + this.tileType[i][j] + ",";
         }else{
-          mapData = mapData + this.tileType[i][j] + "]])";
+          mapData = mapData + this.tileType[i][j] + "]]) /n";
         }
       }
     }
